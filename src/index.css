@@ -24,6 +24,14 @@ a:hover {
 }
 
 body {
+  /* background-image: url(../public/manekinekofull.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 100%; */
+  margin: 0px; 
 }
 
 h1 {

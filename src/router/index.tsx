@@ -2,7 +2,8 @@ import {
   createBrowserRouter,
   Navigate
 } from "react-router-dom";
-import DashboardLayout from "../layouts/DashboardLayout";
+
+import ProtectedDashboard from "../components/ProtectedDashboard";
 import Login from "../pages/Login";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    Component: DashboardLayout,
+    element: <ProtectedDashboard />,
     children: [
       {
         path: "dashboard",
@@ -36,5 +37,6 @@ const router = createBrowserRouter([
     element: <Login />
   },
 ]);
+
 
 export default router;

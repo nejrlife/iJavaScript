@@ -1,8 +1,11 @@
+import './Header.less';
+
 const Header = () => {
-  
   return (
-    <div>iJavaScript</div>
+    <div className='headerFlex'>
+      <p className='js_framework'>React.js</p>
+      <p className='heading'>iJavaScript</p>
+    </div>
   )
 }
-
 export default Header;

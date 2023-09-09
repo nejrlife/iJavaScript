@@ -1,17 +1,33 @@
 import {
   RouterProvider,
 } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { connect } from 'react-redux';
 import router from './router';
-import './App.css';
-// import DashboardLayout from './layouts/DashboardLayout';
+import './App.less';
+import ProgressSpinner from "./components/ProgressSpinner";
 
-function App() {
-  // const isAuthenticated = false;
+const App = (props:any) => {
+  const [spinnerShow, setSpinnerShow] = useState(false);
+  
+  useEffect(() => {
+    setSpinnerShow(props.progressSpinnerShow);
+  },[props.progressSpinnerShow]);
+
   return (
     <>
-      <RouterProvider router={router} />      
+      <div className="background" />
+      {spinnerShow ?
+        (<ProgressSpinner />) :
+        null
+      }
+      <RouterProvider router={router} />
     </>
   )
 }
 
-export default App
+const mapStateToProps = (state:any) => ({
+  progressSpinnerShow: state.progressSpinnerShow
+});
+
+export default connect(mapStateToProps, null)(App);

@@ -15,4 +15,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 }
