@@ -40,10 +40,10 @@ const SideNavBar = (props: any) => {
             <li>
               <NavLink to="/home/team">TEAM</NavLink>
             </li>
-            <hr />
+            {/* <hr />
             <li>
               <a href="#" onClick={handleLogout}>LOGOUT</a>
-            </li>
+            </li> */}
           </nav>
         </ul>
       </div>
