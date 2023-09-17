@@ -2,7 +2,29 @@
   display: flex;
   flex-direction: row;
 }
-.sidebarFlex {
-  display: flex;
-  flex-direction: column;
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .dashboardFlex {
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .layoutWidth {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboardFlex {
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .layoutWidth {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

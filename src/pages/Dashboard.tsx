@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import './Dashboard.less';
-import idPic from '../assets/img/placeholder-id.jpg';
-import { RETRIEVE_USER_DETAILS } from '../sagas/constants';
-import { Transaction } from '@/types';
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import "./Dashboard.less";
+import idPic from "../assets/img/placeholder-id.jpg";
+import { RETRIEVE_USER_DETAILS } from "../sagas/constants";
+import { Transaction } from "@/types";
 
 const Dashboard = (props: any) => {
   const {
@@ -16,13 +16,16 @@ const Dashboard = (props: any) => {
   const [userLastLogin, setUserLastLogin] = useState<string>('');
 
   useEffect(() => {
-    if (props.retrieveUserDetails.customer.id?.length <=0 ) {
+    if (props.customerId?.length > 0 ) {
       dispatch({
         type: RETRIEVE_USER_DETAILS,
-        payload: {}
+        payload: {
+          customerId: props.customerId,
+          userToken: props.userToken
+        }
       });
     }
-  },[dispatch, props.retrieveUserDetails.customer.id]);
+  },[dispatch, props.customerId]);
 
   useEffect(() => {
     if (props.retrieveUserDetails.customer.id) {
@@ -107,6 +110,8 @@ const Dashboard = (props: any) => {
 }
 
 const mapStateToProps = (state:any) => ({
+  userToken: state.authenticateUser.userToken,
+  customerId: state.authenticateUser.customerId,
   retrieveUserDetails: state.retrieveUserDetails
 });
 

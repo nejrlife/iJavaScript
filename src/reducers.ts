@@ -1,6 +1,17 @@
-import * as actions from './sagas/constants';
+import * as actions from "./sagas/constants";
+import { AppDetails, CustomerDetails, AuthenticateUserDetails } from "./types"
 
-const initRetrieveUserDetailsCustomerState = {
+const initAuthenticateUserDetailsState : AuthenticateUserDetails = {
+  userToken: '',
+  customerId: '',
+  isUserAuthenticated: false,
+  logInError: '',
+  logInPending: false,
+  isAuthenticatedError: '',
+  isAuthenticatedPending: false
+};
+
+const initRetrieveUserDetailsCustomerState : CustomerDetails = {
   id: '',
   name: '',
   last_login: '',
@@ -8,16 +19,9 @@ const initRetrieveUserDetailsCustomerState = {
   transaction: []
 };
 
-const INITIAL_STATE = {
+const INITIAL_STATE : AppDetails = {
   progressSpinnerShow: false,
-  authenticateUser: {
-    customerId: '',
-    isUserAuthenticated: false,
-    logInError: '',
-    logInPending: false,
-    isAuthenticatedError: '',
-    isAuthenticatedPending: false
-  },
+  authenticateUser: { ...initAuthenticateUserDetailsState },
   retrieveUserDetails: {
     customer: { ...initRetrieveUserDetailsCustomerState },
     retrieveUserDetailsError: '',
@@ -25,12 +29,13 @@ const INITIAL_STATE = {
   }
 }
 
-export default function appReducer(state = INITIAL_STATE, action) {
+export default function appReducer(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case actions.LOG_IN_SUCCESS:
       return {
         ...state,
         authenticateUser: {
+          userToken: action.payload.userToken,
           isUserAuthenticated: action.payload.isUserAuthenticated,
           customerId: action.payload.customerId,
           logInError: '',
@@ -41,9 +46,10 @@ export default function appReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         authenticateUser: {
+          userToken: '',
           isUserAuthenticated: false,
           customerId: '',
-          logInError: 'Error happened in logIn',
+          logInError: action.payload.logInError,
           logInPending: false
         }
       };
@@ -52,6 +58,7 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         authenticateUser: {
           ...state.authenticateUser,
+          logInError: '',
           logInPending: true
         }
       };
@@ -69,7 +76,7 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         retrieveUserDetails: {
           customer: { ...initRetrieveUserDetailsCustomerState },
-          retrieveUserDetailsError: 'Error happened in retrieveUserDetailsError',
+          retrieveUserDetailsError: action.payload.retrieveUserDetailsError,
           retrieveUserDetailsPending: false
         }
       };
@@ -95,7 +102,9 @@ export default function appReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         authenticateUser: {
-          isUserAuthenticated: action.payload.isUserAuthenticated,
+          customerId: action.payload.customerId,
+          userToken: action.payload.userToken,
+          isUserAuthenticated: true,
           isAuthenticatedError: '',
           isAuthenticatedPending: false
         }
@@ -105,7 +114,8 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         authenticateUser: {
           isUserAuthenticated: false,
-          isAuthenticatedError: 'Error happened in isAuthenticated',
+          userToken: '',
+          isAuthenticatedError: action.payload.isAuthenticatedError,
           isAuthenticatedPending: false
         }
       };
@@ -116,6 +126,12 @@ export default function appReducer(state = INITIAL_STATE, action) {
           ...state.authenticateUser,
           isAuthenticatedPending: true
         }
+      };
+    case actions.IS_AUTHENTICATED_CLEARDETAILS:
+      console.log('baniko');
+      return {
+        ...state,
+        authenticateUser: { ...initAuthenticateUserDetailsState }
       };
     default:
       return state;

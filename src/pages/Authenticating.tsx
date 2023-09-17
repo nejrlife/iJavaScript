@@ -1,4 +1,4 @@
-import './Authenticating.less';
+import "./Authenticating.less";
 
 const Authenticating = () => {
   return (

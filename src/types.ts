@@ -1,7 +1,23 @@
-export interface Transaction {
-  date: string;
-  desc: string;
-  amount: string;
+export interface AppDetails {
+  progressSpinnerShow: boolean,
+  authenticateUser: AuthenticateUserDetails,
+  retrieveUserDetails: RetrieveUserDetails
+}
+
+export interface AuthenticateUserDetails {
+  userToken: string,
+  customerId: string,
+  isUserAuthenticated: boolean,
+  logInError: string,
+  logInPending: boolean,
+  isAuthenticatedError: string,
+  isAuthenticatedPending: boolean
+}
+
+export interface RetrieveUserDetails {
+  customer: CustomerDetails,
+  retrieveUserDetailsError: string,
+  retrieveUserDetailsPending: boolean
 }
 
 export interface CustomerDetails {
@@ -11,3 +27,11 @@ export interface CustomerDetails {
   balance: string,
   transaction: Transaction[]
 }
+
+export interface Transaction {
+  date: string;
+  desc: string;
+  amount: string;
+}
+
+

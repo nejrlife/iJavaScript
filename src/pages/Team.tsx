@@ -1,5 +1,5 @@
-import './Team.less';
-import circleUser from '../assets/img/circle-user.png';
+import "./Team.less";
+import circleUser from "../assets/img/circle-user.png";
 
 const Team = () => {
   const data = {

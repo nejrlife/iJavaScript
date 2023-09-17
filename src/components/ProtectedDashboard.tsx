@@ -2,9 +2,9 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Authenticating from "../pages/Authenticating";
 import AuthError from "../pages/AuthError";
 
-import { useEffect, useState } from 'react'
-import { connect } from 'react-redux';
-import { IS_AUTHENTICATED } from '../sagas/constants';
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { IS_AUTHENTICATED } from "../sagas/constants";
 
 const ProtectedDashboard = (props: any) => {
   const [isAuth, setAuth] = useState(false);
@@ -17,20 +17,18 @@ const ProtectedDashboard = (props: any) => {
   
   useEffect(() => {
     setAuth(props.isUserAuthenticated);
-    if (props.isUserAuthenticated === false) {
+    const token = sessionStorage.getItem('userToken');
+    if (props.isUserAuthenticated === false && token && token?.length > 0) {
       dispatch({
         type: IS_AUTHENTICATED,
+        payload: {
+          userToken: token
+        }
       });
     }
   }, [dispatch, props.isUserAuthenticated])
 
-  // useEffect(() => {
-    
-  // }, [props.isUserAuthenticated]);
-
   useEffect(() => {
-    console.log('midir');
-    console.log(props.isAuthenticatedPending);
     setAuthPending(props.isAuthenticatedPending);
   }, [props.isAuthenticatedPending]);
 

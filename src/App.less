@@ -1,17 +1,21 @@
-.background {
-  /* The image used */
-  // background-image: url(../public/manekinekofull.jpg);
-  /* Full height */
-  // height: 100%; 
-  /* Center and scale the image nicely */
-  // background-attachment: fixed;
-  // height: 100vh;
-  background-image: url(../manekinekofull.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  margin: 0px;
+.appContainer {
+  padding-top: 5rem;
+  padding-left: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .appContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .appContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0rem;
+  }
 }

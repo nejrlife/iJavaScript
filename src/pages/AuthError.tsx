@@ -1,4 +1,4 @@
-import './AuthError.less';
+import "./AuthError.less";
 
 const AuthError = (props: any) => {
   return (

@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import {
   Outlet, useNavigate, useLocation
 } from "react-router-dom";
-import Header from '../components/Header';
-import SideNavBar from '../components/SideNavBar';
-import './DashboardLayout.less';
+import Header from "../components/Header";
+import SideNavBar from "../components/SideNavBar";
+import "./DashboardLayout.less";
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const DashboardLayout = () => {
   },[])
 
   const layout = (
-    <>
+    <div className="layoutWidth">
       <Header />
       <div className='dashboardFlex'>
         <SideNavBar />
@@ -25,7 +25,7 @@ const DashboardLayout = () => {
           <Outlet />
         </div>
       </div>
-    </>
+    </div>
   )
 
   return (

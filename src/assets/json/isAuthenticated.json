@@ -1,5 +1,5 @@
 {
   "success": "true",
-  "isUserAuthenticated": true,
+  "customerId": "IJ101",
   "status": 200
 }

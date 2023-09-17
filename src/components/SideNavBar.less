@@ -24,3 +24,37 @@ li a:hover {
 #sidebar a.active {
   color: #666666;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #sidebar hr{
+    display: none;
+  }
+  .leftSider {
+    width: initial;
+    min-height: initial;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  #sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #sidebar hr{
+    display: none;
+  }
+  .leftSider {
+    width: initial;
+    min-height: initial;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
