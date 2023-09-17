@@ -8,6 +8,7 @@
 .teamHeader {
   font-family: Microsoft JhengHei;
   font-size: 32px;
+  margin: 0px;
 }
 .teamContentFlex {
   display: flex;
@@ -52,4 +53,27 @@
 @keyframes example {
   from {background-color: red;}
   to {background-color: yellow;}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .teamContainer {
+    width: initial;
+    height: auto;
+    padding: 20px;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .teamContainer {
+    width: initial;
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+    margin-left: 0px;
+  }
+  .placeholderScaled {
+    width: 100px; /* you can use % */
+    height: 100px;
+  }
 }

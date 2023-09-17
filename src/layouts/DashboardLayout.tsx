@@ -21,7 +21,7 @@ const DashboardLayout = () => {
       <Header />
       <div className='dashboardFlex'>
         <SideNavBar />
-        <div>
+        <div className='outletClass'>
           <Outlet />
         </div>
       </div>
@@ -29,7 +29,7 @@ const DashboardLayout = () => {
   )
 
   return (
-    <div>{ layout }</div>
+    <div className="layoutContainer">{ layout }</div>
   )
 }
 

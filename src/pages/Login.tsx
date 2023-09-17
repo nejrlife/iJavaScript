@@ -78,7 +78,7 @@ const Login = (props: any) => {
   }, [formData.userId, formData.password]);
 
   return (
-    <div className='layoutWidth'>
+    <div className='loginLayoutWidth'>
       <Header />
       <div className='loginContainer'>
         { errorMessage &&

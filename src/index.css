@@ -72,8 +72,8 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 767px) {
-  .headerFlex {
-    min-height: 100%;
+@media all and (max-width: 767px) {
+  #root {
+    height: 100vh;
   }
 }
