@@ -29,7 +29,7 @@ li a:hover {
   #sidebar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: initial;
   }
   #sidebar hr{
     display: none;
@@ -37,12 +37,20 @@ li a:hover {
   .leftSider {
     width: initial;
     min-height: initial;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0px;
+  }
+  li {
+    height: 40px;
+    width: 33.4%;
+  }
+  li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.5px) {
 
   ul {
     margin: 0px;
