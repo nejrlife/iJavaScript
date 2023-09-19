@@ -40,7 +40,7 @@ const Team = () => {
         <hr />
         <div className='teamContentFlex'>
           <div className='teamMembersFlex'>
-            {data.memberList.map((member, i) => (
+            {data.memberList.map((member) => (
               <div key={member.name} className='memberInfoFlex'>
                 <img className='circleUserScaled' src={circleUser} alt="circleUser" />
                 <p><b>{member.name}</b></p>

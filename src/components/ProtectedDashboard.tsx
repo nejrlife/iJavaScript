@@ -9,7 +9,6 @@ import { IS_AUTHENTICATED } from "../sagas/constants";
 const ProtectedDashboard = (props: any) => {
   const [isAuth, setAuth] = useState(false);
   const [isAuthPending, setAuthPending] = useState(false);
-  const [authError, setAuthError] = useState('');
 
   const {
     dispatch  
@@ -32,19 +31,12 @@ const ProtectedDashboard = (props: any) => {
     setAuthPending(props.isAuthenticatedPending);
   }, [props.isAuthenticatedPending]);
 
-  useEffect(() => {
-    if (props.isAuthenticatedError?.length > 0) {
-      setAuthError(props.isAuthenticatedError);
-    }
-  }, [props.isAuthenticatedError]);
-
   return (
     isAuthPending ?
       <Authenticating /> : (
         isAuth ?
           <DashboardLayout /> :
-          <AuthError
-            error={authError}/>
+          <AuthError/>
       )
   );
 }

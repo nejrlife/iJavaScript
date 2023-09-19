@@ -15,7 +15,6 @@ const Login = (props: any) => {
   });
   const [isUserIdValid, setUserIdValid] = useState(true);
   const [isPasswordValid, setPasswordValid] = useState(true);
-  const [isButtonDisabled, setButtonDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
   const {
@@ -78,7 +77,6 @@ const Login = (props: any) => {
 
     setUserIdValid(isUserValid);
     setPasswordValid(isPwValid);
-    setButtonDisabled(!isUserValid || !isPwValid);
   }, [formData.userId, formData.password]);
 
   return (

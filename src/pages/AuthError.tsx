@@ -2,7 +2,7 @@ import "./AuthError.less";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 
-const AuthError = (props: any) => {
+const AuthError = () => {
   const navigate = useNavigate();
   const handleLogin = (event: any) => {
     event.preventDefault();
