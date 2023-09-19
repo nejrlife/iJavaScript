@@ -21,7 +21,7 @@ export function* watchLogIn(action) {
       yield put({
         type: LOG_IN_FAILURE,
         payload: {
-          logInError: 'Log in service unavailable'
+          logInError: 'Sorry unable to connect to system!'
         }
       });
     } else {
@@ -38,7 +38,8 @@ export function* watchLogIn(action) {
         yield put({
           type: LOG_IN_FAILURE,
           payload: {
-            logInError: response.message
+            // logInError: response.message
+            logInError: 'Invalid User Credentials!'
           }
         });
       }
@@ -47,7 +48,7 @@ export function* watchLogIn(action) {
     yield put({
       type: LOG_IN_FAILURE,
       payload: {
-        logInError: err.message
+        logInError: 'Sorry unable to connect to system!'
       }
     });
   } finally {

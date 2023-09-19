@@ -4,7 +4,7 @@
 }
 .loginContainer {
   width: 1008px;
-  height: 300px;
+  height: 330px;
   background-color: #CC0000;
   padding-top: 20px;
 }
@@ -20,6 +20,9 @@
   color: #FFFFFF;
   font-style: italic;
 }
+.errorMessage p b {
+  font-weight: 600;
+}
 .formContainer {
   margin-top: 20px;
   display: flex;
@@ -34,14 +37,21 @@
   font-size: 18px;
   color: #FFF;
 }
+.formContainer label p {
+  margin: 0px;
+}
 .formContainer input{
   margin-left: 20px;
   height: 40px;
+  padding: 5px;
 }
-.formContainer input::placeholder {
+.formContainer ::placeholder {
   color: gray;
   opacity: 0.5; /* Firefox */
-  padding: 5px;
+  font-family: Microsoft JhengHei;
+  font-size: 18px;
+}
+.formContainer input::-webkit-autofill::first-line {
   font-family: Microsoft JhengHei;
   font-size: 18px;
 }
@@ -80,6 +90,9 @@
   color: #FFF;
   font-style: italic;
 }
+.formFieldFlex input {
+  width: 350px;
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .loginContainer {
@@ -95,6 +108,13 @@
 }
 
 @media (max-width: 767.5px) {
+  .formFieldFlex {
+    flex-direction: column;
+  }
+  .formContainer input{
+    margin-left: 0px;
+    width: 80%;
+  }
   .loginContainer {
     width: initial;
     height: 75%;
@@ -108,7 +128,35 @@
     margin-right: auto;
     margin-top: 20px;
   }
+  .validationFlex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .validationFlex span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+  }
   .validationFlex p {
     font-size: 14px;
+    margin-left: 0px;
+  }
+  .formContainer label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    padding-right: 10px;
+  }
+  .formContainer label p {
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  .validationFlex div {
+    display: none;
+  }
+  .formContainer button {
+    margin-right: 5.5vw;
   }
 }

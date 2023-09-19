@@ -3,7 +3,17 @@
   height: auto;
   background-color: #F2F2F2;
   padding:20px;
-  margin-left:20px;
+}
+.authErrorContainer a {
+  font-family: Microsoft JhengHei;
+  font-size: 18px;
+  color: #000;
+  text-decoration: underline;
+}
+.authErrorContainer a:hover {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
 }
 .authErrorHeader {
   font-family: Microsoft JhengHei;
@@ -20,4 +30,27 @@
   padding: 20px;
   color: #FFFFFF;
   font-style: italic;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .authErrorContainer {
+    width: initial;
+  }
+  .authErrorLayoutWidth {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .authErrorContainer {
+    width: initial;
+  }
+  .authErrorLayoutWidth {
+    width: 90%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
 }

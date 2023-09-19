@@ -33,6 +33,10 @@ const Login = (props: any) => {
   const handleSubmit = (event: any) => {
     event.preventDefault(); // Prevent the default form submission behavior
     setErrorMessage('');
+    if (formData.userId?.length === 0 || formData.password?.length === 0) {
+      setErrorMessage('Please enter login credentials to continue');
+      return;
+    }
     // You can handle form submission logic here, e.g., send data to a server or perform client-side validation
     console.log('Form submitted with data:', event);
     dispatch({
@@ -74,7 +78,7 @@ const Login = (props: any) => {
 
     setUserIdValid(isUserValid);
     setPasswordValid(isPwValid);
-    setButtonDisabled(!isUserValid || !isPwValid || formData.userId?.length === 0 || formData.password?.length === 0);
+    setButtonDisabled(!isUserValid || !isPwValid);
   }, [formData.userId, formData.password]);
 
   return (
@@ -83,43 +87,41 @@ const Login = (props: any) => {
       <div className='loginContainer'>
         { errorMessage &&
           <div className='errorMessage'>
-            <p>{ errorMessage }</p>
+            <p><b>Error: </b>{ errorMessage }</p>
           </div> }
         <form onSubmit={handleSubmit}>
           <div className='formContainer'>
             <div className='formFieldFlex'>
-              <label>Username</label>
+              <label><p>User ID</p></label>
               <input
                 type="text"
                 placeholder="Enter User ID"
                 name="userId"
-                required
                 value={formData.userId}
                 onChange={handleInputChange}
               />
             </div>
             <div className='validationFlex'>
               <div/>
-              {!isUserIdValid && <p>Please enter a valid username.</p>}
+              <span>{!isUserIdValid && <p>Please enter a valid username.</p>}</span>
             </div>
             <div className='formFieldFlex'>
-              <label>Password</label>
+              <label><p>Password</p></label>
               <input
                 type="password"
                 placeholder="Password"
                 name="password"
-                required
                 value={formData.password}
                 onChange={handleInputChange}
               />
             </div>
             <div className='validationFlex'>
               <div/>
-              {!isPasswordValid && <p>Please enter a valid password.</p>}
+              <span>{!isPasswordValid && <p>Please enter a valid password.</p>}</span>
             </div>
             <button
               type="submit"
-              disabled={isButtonDisabled}
+              // disabled={isButtonDisabled}
             >Log In</button>
           </div>
         </form>

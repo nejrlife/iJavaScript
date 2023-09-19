@@ -20,7 +20,7 @@ const Header = (props: any) => {
   }
   return (
     <div className='headerFlex'>
-      <p className='js_framework'>React.js</p>
+      <p className='js_framework'>React JS</p>
       <p className='heading'>iJavaScript</p>
       <div className='logoutFlex'>
         {props.isUserAuthenticated && <FiLogOut
