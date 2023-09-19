@@ -18,8 +18,7 @@ export function* watchIsAuthenticated(action) {
   });
   try {
     const response = yield call(getIsAuthenticatedApi, action?.payload);
-    console.log('one shot');
-    console.log(response);
+
     if (!response || !response.success) {
       yield put({
         type: IS_AUTHENTICATED_FAILURE,

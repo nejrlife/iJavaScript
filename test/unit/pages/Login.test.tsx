@@ -22,7 +22,6 @@ const INITIAL_STATE = {
 const mockStore = configureStore([]);
 
 test('should render Login page', () => {
-  console.log(React);
   const store = mockStore(INITIAL_STATE);
   const { container } = render(
       <MemoryRouter>

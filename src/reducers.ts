@@ -128,7 +128,6 @@ export default function appReducer(state = INITIAL_STATE, action: any) {
         }
       };
     case actions.IS_AUTHENTICATED_CLEARDETAILS:
-      console.log('baniko');
       return {
         ...state,
         authenticateUser: { ...initAuthenticateUserDetailsState }
