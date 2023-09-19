@@ -11,7 +11,7 @@ const AuthError = (props: any) => {
   return (
     <div className='authErrorLayoutWidth'>
       <Header />
-      <div className='authErrorContainer'>
+      <div className='grey-box authErrorContainer'>
         <h2 className='authErrorHeader'>
           Your user session expired.
         </h2>

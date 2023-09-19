@@ -121,6 +121,7 @@ const Login = (props: any) => {
             </div>
             <button
               type="submit"
+              className="basic-button"
               // disabled={isButtonDisabled}
             >Log In</button>
           </div>

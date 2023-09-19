@@ -42,7 +42,7 @@ const Dashboard = (props: any) => {
 
   return (
     <>
-      <div className='dashboardContainer'>
+      <div className='grey-box dashboardContainer'>
         <div className='profileFlex'>
           <img className='idPicClass' src={idPic} alt="idPic" />
           <div className='profileText'>
@@ -94,12 +94,18 @@ const Dashboard = (props: any) => {
               />
               Flyers
             </label>
-            <button type="button">Submit</button>
+            <button
+              type="button"
+              className="blue-button"
+            >
+              Submit
+            </button>
           </div>
           <div className='twoWayBindingFlex'>
             <h3>Two Way Data Binding</h3>
             <input
               type="text"
+              className="text-box"
               name="twoWayBindingInput"
               placeholder="Enter value for two way binding" />
           </div>

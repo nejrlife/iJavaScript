@@ -19,7 +19,7 @@ const Header = (props: any) => {
     navigate('/login');
   }
   return (
-    <div className='headerFlex'>
+    <div className='headerFlex red-box'>
       <p className='js_framework'>React JS</p>
       <p className='heading'>iJavaScript</p>
       <div className='logoutFlex'>

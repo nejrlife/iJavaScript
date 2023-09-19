@@ -5,7 +5,7 @@ import ReusableCard from "../components/ReusableCard";
 const About = () => {
   return (
     <>
-      <div className='aboutContainer'>
+      <div className='grey-box aboutContainer'>
         <h2 className='aboutHeader'>
           About iJavaScript
         </h2>

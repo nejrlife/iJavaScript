@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const SideNavBar = () => {
   return (
     <>
-      <div className='leftSider'>
+      <div className='grey-box leftSider'>
         <ul>
           <nav id="sidebar">
             <li>

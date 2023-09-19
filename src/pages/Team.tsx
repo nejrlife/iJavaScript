@@ -33,7 +33,7 @@ const Team = () => {
 
   return (
     <>
-      <div className='teamContainer'>
+      <div className='grey-box teamContainer'>
         <h2 className='teamHeader'>
           Meet the Team
         </h2>

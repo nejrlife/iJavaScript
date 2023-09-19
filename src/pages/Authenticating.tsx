@@ -5,7 +5,7 @@ const Authenticating = () => {
   return (
     <div className='authenticatingLayoutWidth'>
       <Header />
-      <div className='authenticatingContainer'>
+      <div className='grey-box authenticatingContainer'>
         <h2 className='authenticatingHeader'>
           Authenticating...
         </h2>
