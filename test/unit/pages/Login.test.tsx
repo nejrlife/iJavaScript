@@ -1,9 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Login from '../../../src/pages/Login';
 import { MemoryRouter } from 'react-router-dom';
+import '@testing-library/jest-dom'
 
 const initAuthenticateUserDetailsState = {
   userToken: '',
@@ -21,7 +22,7 @@ const INITIAL_STATE = {
 
 const mockStore = configureStore([]);
 
-test('should render Login page', () => {
+test('should render Login page and components', () => {
   const store = mockStore(INITIAL_STATE);
   const { container } = render(
       <MemoryRouter>
@@ -30,6 +31,13 @@ test('should render Login page', () => {
         </Provider>
       </MemoryRouter>
   );
+  const buttonElement = screen.getByText('Log In');
+  const useridFieldElement = screen.getByPlaceholderText('Password');
+  const pwfieldElement = screen.getByPlaceholderText('Enter User ID');
+  
+  expect(buttonElement).toBeInTheDocument();
+  expect(useridFieldElement).toBeInTheDocument();
+  expect(pwfieldElement).toBeInTheDocument();
   expect(container).toMatchSnapshot();
 });
 

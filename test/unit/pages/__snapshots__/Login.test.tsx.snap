@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Login page 1`] = `
+exports[`should render Login page and components 1`] = `
 <div>
   <div
     class="loginLayoutWidth"
