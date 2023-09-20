@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import "./Dashboard.less";
-import idPic from "../assets/img/placeholder-id.jpg";
-import { RETRIEVE_USER_DETAILS } from "../sagas/constants";
+import idPic from "../../assets/img/placeholder-id.jpg";
+import { RETRIEVE_USER_DETAILS } from "../../sagas/constants";
 import { Transaction } from "@/types";
 
 const Dashboard = (props: any) => {

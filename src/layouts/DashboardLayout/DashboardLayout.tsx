@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import {
   Outlet, useNavigate, useLocation
 } from "react-router-dom";
-import Header from "../components/Header";
-import SideNavBar from "../components/SideNavBar";
+import Header from "../../components/Header/Header";
+import SideNavBar from "../../components/SideNavBar/SideNavBar";
 import "./DashboardLayout.less";
 
 const DashboardLayout = () => {

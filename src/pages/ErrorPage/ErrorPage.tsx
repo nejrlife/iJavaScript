@@ -1,5 +1,5 @@
 import "./ErrorPage.less";
-import Header from "../components/Header";
+import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 
 const ErrorPage = (props: any) => {

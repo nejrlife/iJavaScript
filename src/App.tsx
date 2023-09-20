@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import router from "./router";
 import "./App.less";
-import ProgressSpinner from "./components/ProgressSpinner";
+import ProgressSpinner from "./components/ProgressSpinner/ProgressSpinner";
 
 const App = (props:any) => {
   const [spinnerShow, setSpinnerShow] = useState(false);

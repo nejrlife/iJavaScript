@@ -1,8 +1,8 @@
-import Header from "../components/Header";
+import Header from "../../components/Header/Header";
 import "./Login.less";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react"
-import { IS_AUTHENTICATED, LOG_IN } from "../sagas/constants";
+import { IS_AUTHENTICATED, LOG_IN } from "../../sagas/constants";
 import {
   useNavigate
 } from "react-router-dom";

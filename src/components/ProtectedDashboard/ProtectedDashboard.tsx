@@ -1,10 +1,10 @@
-import DashboardLayout from "../layouts/DashboardLayout";
-import Authenticating from "../pages/Authenticating";
-import ErrorPage from "../pages/ErrorPage";
+import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
+import Authenticating from "../../pages/Authenticating/Authenticating";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { IS_AUTHENTICATED } from "../sagas/constants";
+import { IS_AUTHENTICATED } from "../../sagas/constants";
 
 const ProtectedDashboard = (props: any) => {
   const [isAuth, setAuth] = useState(false);

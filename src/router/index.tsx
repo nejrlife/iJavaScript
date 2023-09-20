@@ -2,12 +2,12 @@ import {
   createBrowserRouter,
   Navigate
 } from "react-router-dom";
-import ProtectedDashboard from "../components/ProtectedDashboard";
-import Login from "../pages/Login";
-import About from "../pages/About";
-import Dashboard from "../pages/Dashboard";
-import Team from "../pages/Team";
-import ErrorPage from "../pages/ErrorPage";
+import ProtectedDashboard from "../components/ProtectedDashboard/ProtectedDashboard";
+import Login from "../pages/Login/Login";
+import About from "../pages/About/About";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Team from "../pages/Team/Team";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
