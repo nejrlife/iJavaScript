@@ -2,19 +2,14 @@ import "./Header.less";
 import { FiLogOut } from "react-icons/fi"
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { IS_AUTHENTICATED_CLEARDETAILS } from "../sagas/constants";
+import { isAuthenticatedClearDetails } from "../actions/auth";
 
 const Header = (props: any) => {
-  const {
-    dispatch  
-  } = props;
   const navigate = useNavigate();
 
   const handleLogout = (event: any) => {
     event.preventDefault();
-    dispatch({
-      type: IS_AUTHENTICATED_CLEARDETAILS
-    });
+    props.isAuthenticatedClearDetails();
     sessionStorage.removeItem('userToken');
     navigate('/login');
   }
@@ -34,4 +29,7 @@ const Header = (props: any) => {
 const mapStateToProps = (state:any) => ({
   isUserAuthenticated: state.authenticateUser.isUserAuthenticated
 });
-export default connect(mapStateToProps, null)(Header);
+const mapDispatchToProps  = (dispatch:any) => ({
+  isAuthenticatedClearDetails: () => dispatch(isAuthenticatedClearDetails())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

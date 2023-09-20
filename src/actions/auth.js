@@ -1,9 +1,7 @@
-import { LOG_IN } from '../sagas/constants';
+import { IS_AUTHENTICATED_CLEARDETAILS } from '../sagas/constants';
 
-export function login(username, callback) {
+export function isAuthenticatedClearDetails() {
   return {
-    type: LOG_IN,
-    payload: { username },
-    callback
+    type: IS_AUTHENTICATED_CLEARDETAILS
   }
 }
