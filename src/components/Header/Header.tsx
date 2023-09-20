@@ -3,6 +3,7 @@ import { FiLogOut } from "react-icons/fi"
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { isAuthenticatedClearDetails } from "../../actions/auth";
+import { retrieveUserDetailsClearDetails } from "../../actions/retrieveUserDetails";
 
 const Header = (props: any) => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Header = (props: any) => {
   const handleLogout = (event: any) => {
     event.preventDefault();
     props.isAuthClearDetails();
+    props.retrieveUserDetailsClear();
     sessionStorage.removeItem('userToken');
     navigate('/login');
   }
@@ -30,6 +32,7 @@ const mapStateToProps = (state:any) => ({
   isUserAuthenticated: state.authenticateUser.isUserAuthenticated
 });
 const mapDispatchToProps  = (dispatch:any) => ({
-  isAuthClearDetails: () => dispatch(isAuthenticatedClearDetails())
+  isAuthClearDetails: () => dispatch(isAuthenticatedClearDetails()),
+  retrieveUserDetailsClear: () => dispatch(retrieveUserDetailsClearDetails())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

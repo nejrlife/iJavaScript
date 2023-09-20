@@ -92,6 +92,7 @@ const Login = (props: any) => {
             <div className='formFieldFlex'>
               <label><p>User ID</p></label>
               <input
+                className="text-box"
                 type="text"
                 placeholder="Enter User ID"
                 name="userId"
@@ -106,6 +107,7 @@ const Login = (props: any) => {
             <div className='formFieldFlex'>
               <label><p>Password</p></label>
               <input
+                className="text-box"
                 type="password"
                 placeholder="Password"
                 name="password"

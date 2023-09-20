@@ -4,6 +4,7 @@ import "./Dashboard.less";
 import idPic from "../../assets/img/placeholder-id.jpg";
 import { RETRIEVE_USER_DETAILS } from "../../sagas/constants";
 import { Transaction } from "@/types";
+import Skeleton from '@mui/material/Skeleton';
 
 const Dashboard = (props: any) => {
   const {
@@ -16,7 +17,7 @@ const Dashboard = (props: any) => {
   const [userLastLogin, setUserLastLogin] = useState<string>('');
 
   useEffect(() => {
-    if (props.customerId?.length > 0 ) {
+    if (!props.retrieveUserDetailsCustomerId || props.retrieveUserDetailsCustomerId?.length === 0) {
       dispatch({
         type: RETRIEVE_USER_DETAILS,
         payload: {
@@ -25,7 +26,7 @@ const Dashboard = (props: any) => {
         }
       });
     }
-  },[dispatch, props.customerId]);
+  },[dispatch, props.customerId, props.retrieveUserDetailsCustomerId]);
 
   useEffect(() => {
     if (props.retrieveUserDetails.customer.id) {
@@ -46,13 +47,22 @@ const Dashboard = (props: any) => {
         <div className='profileFlex'>
           <img className='idPicClass' src={idPic} alt="idPic" />
           <div className='profileText'>
-            <h2>Welcome {userName?.length > 0 ? userName : 'Skeleton'}</h2>
-            <p>Last login: {userLastLogin?.length > 0 ? userLastLogin : 'Skeleton'}</p>
+            {userName?.length > 0 ?
+              (<h2>Welcome {userName}</h2>) :
+              (<Skeleton variant='text' sx={{ fontSize: '24px' }} width={250} />)
+            }
+            {userLastLogin?.length > 0 ?
+              (<p>Last login: {userLastLogin}</p>) :
+              (<Skeleton variant='text' sx={{ fontSize: '14px' }} width={150} />)
+            }
           </div>
         </div>
         <hr />
         <div className='accountBalanceTable'>
-          <h3>Account Balance: {userBalance?.length > 0 ? userBalance : 'Skeleton'}</h3>
+          {userBalance?.length > 0 ?
+            (<h3>Account Balance: { userBalance }</h3>) :
+            (<Skeleton variant='text' sx={{ fontSize: '18px', marginBlockStart: '1em', marginBlockEnd: '1em' }} width={200} />)
+          }
           {transactionList && transactionList.length > 0 ?
             (<div className='gridContainer'>
               <span id='header1'><b>Date</b></span>
@@ -66,7 +76,7 @@ const Dashboard = (props: any) => {
                 </React.Fragment>
               ))}
             </div>) :
-            (<h2>No Table Data</h2>)
+            (<Skeleton variant='rounded' width={680} height={150} />)
           }
         </div>
         <hr />
@@ -118,6 +128,7 @@ const Dashboard = (props: any) => {
 const mapStateToProps = (state:any) => ({
   userToken: state.authenticateUser.userToken,
   customerId: state.authenticateUser.customerId,
+  retrieveUserDetailsCustomerId: state.retrieveUserDetails.customer.id,
   retrieveUserDetails: state.retrieveUserDetails
 });
 

@@ -88,6 +88,15 @@ export default function appReducer(state = INITIAL_STATE, action: any) {
           retrieveUserDetailsPending: true
         }
       };
+    case actions.RETRIEVE_USER_DETAILS_CLEARDETAILS:
+      return {
+        ...state,
+        retrieveUserDetails: {
+          customer: { ...initRetrieveUserDetailsCustomerState },
+          retrieveUserDetailsError: '',
+          retrieveUserDetailsPending: false
+        }
+      };
     case actions.PROGRESS_SPINNER_SHOW:
       return {
         ...state,
