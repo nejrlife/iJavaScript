@@ -2,12 +2,12 @@ import {
   createBrowserRouter,
   Navigate
 } from "react-router-dom";
-
 import ProtectedDashboard from "../components/ProtectedDashboard";
 import Login from "../pages/Login";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Team from "../pages/Team";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "*",
+    element: <ErrorPage error='404 Page not found'/>
   },
 ]);
 

@@ -1,6 +1,6 @@
 import DashboardLayout from "../layouts/DashboardLayout";
 import Authenticating from "../pages/Authenticating";
-import AuthError from "../pages/AuthError";
+import ErrorPage from "../pages/ErrorPage";
 
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
@@ -36,7 +36,8 @@ const ProtectedDashboard = (props: any) => {
       <Authenticating /> : (
         isAuth ?
           <DashboardLayout /> :
-          <AuthError/>
+          <ErrorPage
+            error='Your user session expired.'/>
       )
   );
 }
