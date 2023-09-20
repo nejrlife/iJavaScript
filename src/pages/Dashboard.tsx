@@ -39,7 +39,7 @@ const Dashboard = (props: any) => {
   const [isSmsChecked, setSmsChecked] = useState(false);
   const [isNewsletter, setNewsletter] = useState(false);
   const [isFlyer, setFlyer] = useState(false);
-
+  
   return (
     <>
       <div className='grey-box dashboardContainer'>

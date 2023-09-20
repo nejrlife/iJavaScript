@@ -7,5 +7,6 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/test/jest/styleMock.js',
+    '\\.(jpg)$': '<rootDir>/test/jest/imgMock.js',
   }
 };
